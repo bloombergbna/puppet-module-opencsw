@@ -16,10 +16,16 @@ class opencsw (
     mode  => '0644',
   }
 
+  if $http_proxy != '' {
+    $wget_option = "--execute http_proxy=${http_proxy}"
+  } else {
+    $wget_option = undef
+  }
   staging::file { 'CSWpkgutil.pkg':
-    target => '/var/sadm/pkg/CSWpkgutil.pkg',
-    source => $package_source,
-    before => Package['CSWpkgutil'],
+    target      => '/var/sadm/pkg/CSWpkgutil.pkg',
+    source      => $package_source,
+    wget_option => $wget_option,
+    before      => Package['CSWpkgutil'],
   }
 
   file { '/var/sadm/install/admin/opencsw-noask':

@@ -7,6 +7,7 @@ class opencsw (
   $mirror         = 'http://mirror.opencsw.org/opencsw/stable',
   $use_gpg        = false,
   $use_md5        = false,
+  $http_proxy     = '',
 ) {
 
   File {
@@ -38,6 +39,7 @@ class opencsw (
   #   - $mirror
   #   - $use_gpg
   #   - $use_md5
+  #   - $http_proxy
   file { '/etc/opt/csw/pkgutil.conf':
     ensure  => file,
     content => template('opencsw/pkgutil.conf.erb'),
@@ -57,5 +59,4 @@ class opencsw (
     creates => "/var/opt/csw/pkgutil/${catalog}",
     require => File['/etc/opt/csw/pkgutil.conf'],
   }
-
 }

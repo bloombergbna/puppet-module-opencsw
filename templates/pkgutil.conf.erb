@@ -4,8 +4,6 @@
 # Any local changes made to this file may be overwritten by the configuration
 # system.
 
-# $Id: pkgutil.conf 7 2009-03-07 18:48:54Z bonivart $
-
 # Master configuration file is placed in /opt/csw/etc. Place a pkgutil.conf
 # file in /etc/opt/csw if you want a local override setting-by-setting
 
@@ -22,7 +20,10 @@ mirror=<%= @mirror %>
 pkgaddopts=-G
 
 # Flags for use with wget, e.g. "-nv" for less verbose or "-q" for quiet
-wgetopts=-nv
+wgetopts=-nv 
+<%if- @http_proxy != '' -%> 
+ --execute http_proxy=<%= @http_proxy %>
+<%- end -%>
 
 # To enable use of gpg or md5, uncomment these
 use_gpg=<%= @use_gpg.to_s %>

@@ -42,7 +42,7 @@ class opencsw (
   #   - $http_proxy
   file { '/etc/opt/csw/pkgutil.conf':
     ensure  => file,
-    content => template('opencsw/pkgutil.conf.erb'),
+    content => template("${module_name}/pkgutil.conf.erb"),
     require => Package['CSWpkgutil'],
   }
 

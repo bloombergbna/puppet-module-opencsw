@@ -7,7 +7,7 @@ class opencsw (
   $mirror         = 'http://mirror.opencsw.org/opencsw/stable',
   $use_gpg        = false,
   $use_md5        = false,
-  $http_proxy     = '',
+  $http_proxy     = undef,
 ) {
 
   File {
@@ -16,15 +16,16 @@ class opencsw (
     mode  => '0644',
   }
 
-  if $http_proxy != '' {
-    $wget_option = "--execute http_proxy=${http_proxy}"
+  if $http_proxy {
+    $env = undef
   } else {
-    $wget_option = undef
+    $env = "http_proxy=${http_proxy}"
   }
+
   staging::file { 'CSWpkgutil.pkg':
     target      => '/var/sadm/pkg/CSWpkgutil.pkg',
     source      => $package_source,
-    wget_option => $wget_option,
+    environment => $env,
     before      => Package['CSWpkgutil'],
   }
 

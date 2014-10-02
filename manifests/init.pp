@@ -7,7 +7,7 @@ class opencsw (
   $mirror         = 'http://mirror.opencsw.org/opencsw/stable',
   $use_gpg        = false,
   $use_md5        = false,
-  $http_proxy     = undef,
+  $http_proxy     = '',
 ) {
 
   File {
@@ -16,7 +16,7 @@ class opencsw (
     mode  => '0644',
   }
 
-  if $http_proxy {
+  if $http_proxy == '' {
     $env = undef
   } else {
     $env = "http_proxy=${http_proxy}"

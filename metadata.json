@@ -1,0 +1,22 @@
+{
+  "author": "Reid Vandewiele",
+  "dependencies": [
+    {
+      "name": "nanliu/staging",
+      "version_requirement": ">= 0.3.1"
+    },
+    {
+      "version_requirement": ">= 3.2.0",
+      "name": "puppetlabs/stdlib"
+    }    
+  ],
+  "license": "Apache License, Version 2.0",
+  "name": "seteam-opencsw",
+  "operatingsystem_support": [],
+  "project_page": "https://github.com/puppetlabs-seteam/puppet-module-opencsw",
+  "requirements": [],
+  "source": "https://github.com/puppetlabs-seteam/puppet-module-opencsw",
+  "summary": "Manage OpenCSW pkgutil on Solaris 10 systems",
+  "tags": [],
+  "version": "0.1.0"
+}

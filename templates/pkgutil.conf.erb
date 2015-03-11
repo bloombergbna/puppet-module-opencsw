@@ -15,7 +15,12 @@
 # Mirror to use for downloads
 # See http://www.blastwave.org/mirrors.php for alternative mirrors
 # Default: http://download.blastwave.org/csw/unstable
-mirror=<%= @mirror %>
+<% [@mirror].flatten.each do |source| -%>
+mirror=<%= source %>
+<% end -%>
+<% if @noncsw -%>
+noncsw=true
+<% end -%>
 
 # Solaris 10 only. Comment this line to make pkgadd install packages into all zones instead of
 # Global only.

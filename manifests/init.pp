@@ -8,8 +8,13 @@ class opencsw (
   $use_gpg        = false,
   $use_md5        = false,
   $http_proxy     = '',
+  $noncsw         = false,
 ) {
 
+  validate_bool($use_gpg)
+  validate_bool($use_md5)
+  validate_bool($noncsw)
+  
   File {
     owner => 'root',
     group => 'root',
@@ -43,10 +48,11 @@ class opencsw (
   }
 
   # Template uses:
-  #   - $mirror
+  #   - $mirror (can be array)
   #   - $use_gpg
   #   - $use_md5
   #   - $http_proxy
+  #   - $noncsw (to use non CSW sources) 
   file { '/etc/opt/csw/pkgutil.conf':
     ensure  => file,
     content => template("${module_name}/pkgutil.conf.erb"),

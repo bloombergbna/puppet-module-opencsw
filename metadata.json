@@ -4,9 +4,12 @@
     {
       "name": "nanliu/staging",
       "version_requirement": ">= 0.3.1"
-    }
+    },
+    {
+      "version_requirement": ">= 3.2.0",
+      "name": "puppetlabs/stdlib"
+    }    
   ],
-  "description": "Puppet module for installing and managing OpenCSW pkgutil",
   "license": "Apache License, Version 2.0",
   "name": "seteam-opencsw",
   "operatingsystem_support": [],

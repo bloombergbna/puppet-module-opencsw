@@ -9,12 +9,13 @@ class opencsw (
   $use_md5        = false,
   $http_proxy     = '',
   $noncsw         = false,
+  $catalog_update = 14,
 ) {
 
   validate_bool($use_gpg)
   validate_bool($use_md5)
   validate_bool($noncsw)
-  
+
   File {
     owner => 'root',
     group => 'root',
@@ -52,7 +53,8 @@ class opencsw (
   #   - $use_gpg
   #   - $use_md5
   #   - $http_proxy
-  #   - $noncsw (to use non CSW sources) 
+  #   - $noncsw (to use non CSW sources)
+  #   - $catalog_update
   file { '/etc/opt/csw/pkgutil.conf':
     ensure  => file,
     content => template("${module_name}/pkgutil.conf.erb"),

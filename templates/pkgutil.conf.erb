@@ -25,7 +25,7 @@ noncsw=true
 pkgaddopts=-G
 
 # Flags for use with wget, e.g. "-nv" for less verbose or "-q" for quiet
-wgetopts=-nv<%if @http_proxy != '' -%> --execute http_proxy=<%= @http_proxy %> <%- end %>
+wgetopts=<%= @wgetopts %>
 
 # To enable use of gpg or md5, uncomment these
 use_gpg=<%= @use_gpg.to_s %>

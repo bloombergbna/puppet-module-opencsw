@@ -1,0 +1,15 @@
+---
+
+# We're currently only using Travis CI for automatic Forge deployment. No real
+# test is run. This is specified here in order to override the default test.
+script: /bin/true
+
+deploy:
+  provider: puppetforge
+  user: seteam
+  password:
+    secure: "ZFA8TaHnGFLjKYgVqY3Ma9Wa1QYIiMv3QqwUL5NMSyi8fxZB4uoT1me5tW1D3NLPE9Px0w0/cwwb2wnWQKAJ3b7ifKE/T1/LWCIGeuOUt6BoRFwaOKF+Fp2FwJu7ex6uXXqjqBKhnHlu5RlpLuYBZcv0Rw+aN0gKw6liC+fGJfw="
+  on:
+    tags: true
+    # all_branches is required to use tags
+    all_branches: true

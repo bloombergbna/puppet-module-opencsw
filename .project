@@ -3,6 +3,7 @@
 	<name>opencsw</name>
 	<comment></comment>
 	<projects>
+		<project>archive</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

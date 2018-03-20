@@ -8,7 +8,13 @@
   "project_page": "https://github.com/puppetlabs-seteam/puppet-module-opencsw",
   "tags": ["solaris", "pkgutil", "opencsw", "blastwave"],
   "dependencies": [
-    { "name": "nanliu/staging",    "version_requirement": ">= 0.3.1" },
+    { "name": "puppet/archive",    "version_requirement": ">= 2.0.0 < 3.0.0" },
     { "name": "puppetlabs/stdlib", "version_requirement": ">= 3.2.0" }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">=4.5.0 <6.0.0"
+    }
   ]
 }
